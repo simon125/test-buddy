@@ -9,6 +9,10 @@ app.get('/', (req,res)=>{
     res.status(200).json({msg: 'success'})
 })
 
+app.get('/test', (req,res)=>{
+    res.status(200).json({msg: 'test'})
+})
+
 
 
 app.listen(PORT, ()=>{
