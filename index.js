@@ -1,5 +1,7 @@
 const express = require('express');
 
+const sum = require('./sum');
+
 
 const app = express();
 
@@ -10,11 +12,14 @@ app.get('/', (req,res)=>{
 })
 
 app.get('/test', (req,res)=>{
-    res.status(200).json({msg: 'test'})
+    res.status(200).json({msg: 'test', sum: sum(1,2)})
 })
+
 
 
 
 app.listen(PORT, ()=>{
     console.log('works')
 })
+
+
