@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 
 const sum = require('./sum');
 
 
 const app = express();
+
+app.use(cors())
 
 const PORT = process.env.PORT || 5000;
 
