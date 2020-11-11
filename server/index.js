@@ -10,7 +10,7 @@ const sum = require('./sum');
 const app = express();
 
 app.use(cors())
-app.use(helmet())
+// app.use(helmet())
 
 const PORT = process.env.PORT || 5000;
 
