@@ -19,7 +19,7 @@ app.get('/test', (req,res)=>{
 })
 
 
-
+console.log(123);
 
 app.listen(PORT, ()=>{
     console.log('works')
