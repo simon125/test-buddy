@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+
+
 
 const sum = require('./sum');
 
@@ -7,6 +10,7 @@ const sum = require('./sum');
 const app = express();
 
 app.use(cors())
+app.use(helmet())
 
 const PORT = process.env.PORT || 5000;
 
