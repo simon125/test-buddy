@@ -10,11 +10,23 @@ const sum = require('./sum');
 const app = express();
 
 app.use(cors())
-app.use(helmet({  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'"],
-    objectSrc: ["'none'"]
-  }}));
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: ["'self'"],
+        connectSrc: ["'self'"],
+        frameSrc: ["'self'"],
+        childSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: [
+          "'self'"
+        ],
+        fontSrc: ["'self'"],
+        imgSrc: ["'self'"],
+        baseUri: ["'self'"],
+      },
+    })
+  )
 
 const PORT = process.env.PORT || 5000;
 
