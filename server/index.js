@@ -24,6 +24,7 @@ app.use(
         fontSrc: ["'self'"],
         imgSrc: ["'self'"],
         baseUri: ["'self'"],
+        "script-src": ["'self'"],
       },
     })
   )
