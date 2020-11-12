@@ -11,22 +11,8 @@ const app = express();
 
 app.use(cors());
 app.use(helmet());
-        // helmet.contentSecurityPolicy({
-        //   directives: {
-        //     defaultSrc: ["'self'"],
-        //     connectSrc: ["'self'"],
-        //     frameSrc: ["'self'"],
-        //     childSrc: ["'self'"],
-        //     scriptSrc: ["'self'"],
-        //     styleSrc: [
-        //       "'self'"
-        //     ],
-        //     fontSrc: ["'self'"],
-        //     imgSrc: ["'self'"],
-        //     baseUri: ["'self'"],
-        //     "script-src": ["'self'"],
-        //   },
-        // })
+
+let state = 0;
 
 const PORT = process.env.PORT || 5000;
 
@@ -35,17 +21,18 @@ app.get('/api', (req,res)=>{
 })
 
 app.get('/test', (req,res)=>{
-    res.status(200).json({msg: 'test', sum: sum(1,2)})
+    state = sum(1,state);
+    res.status(200).json({msg: 'test', sum: state})
 })
 
 
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
   
     app.get('*', (req, res) =>
       res.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'))
     );
-  }
+//   }
 
 app.listen(PORT, ()=>{
     console.log('works')

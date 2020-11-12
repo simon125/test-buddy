@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 function App() {
   const [number, setNumber] = useState(() => 0);
@@ -9,9 +9,18 @@ function App() {
     color: dark ? 'white' : 'black',
   };
 
+  const [data,setData] = useState(()=>0);
+
+
+  useEffect(()=>{
+    fetch('/test').then((res)=>res.json()).then((data)=>{
+      setData(data.sum);
+    }).catch((err)=>console.error(err))
+  },[]);
+
   return (
     <>
-    <h1>HELLO </h1>
+    <h1>HELLO {data}</h1>
       <input
         type="number"
         value={number}
