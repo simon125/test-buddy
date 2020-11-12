@@ -12,7 +12,7 @@ function App() {
   return (
     <>
     <h1>HELLO </h1>
-      {/* <input
+      <input
         type="number"
         value={number}
         onChange={(e) => setNumber(e.target.valueAsNumber)}
@@ -20,7 +20,7 @@ function App() {
       <button onClick={() => setDark((prevDark) => !prevDark)}>
         Change Theme
       </button>
-      <div style={themeStyles}>{doubleNumber}</div> */}
+      <div style={themeStyles}>{doubleNumber}</div>
     </>
   );
 }
