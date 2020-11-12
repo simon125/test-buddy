@@ -9,25 +9,24 @@ const sum = require('./sum');
 
 const app = express();
 
-app.use(cors())
-app.use(
-    helmet.contentSecurityPolicy({
-      directives: {
-        defaultSrc: ["'self'"],
-        connectSrc: ["'self'"],
-        frameSrc: ["'self'"],
-        childSrc: ["'self'"],
-        scriptSrc: ["'self'"],
-        styleSrc: [
-          "'self'"
-        ],
-        fontSrc: ["'self'"],
-        imgSrc: ["'self'"],
-        baseUri: ["'self'"],
-        "script-src": ["'self'"],
-      },
-    })
-  )
+app.use(cors());
+app.use(helmet());
+        // helmet.contentSecurityPolicy({
+        //   directives: {
+        //     defaultSrc: ["'self'"],
+        //     connectSrc: ["'self'"],
+        //     frameSrc: ["'self'"],
+        //     childSrc: ["'self'"],
+        //     scriptSrc: ["'self'"],
+        //     styleSrc: [
+        //       "'self'"
+        //     ],
+        //     fontSrc: ["'self'"],
+        //     imgSrc: ["'self'"],
+        //     baseUri: ["'self'"],
+        //     "script-src": ["'self'"],
+        //   },
+        // })
 
 const PORT = process.env.PORT || 5000;
 
